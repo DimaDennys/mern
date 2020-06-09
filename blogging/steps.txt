@@ -13,6 +13,14 @@ Step 4 – Edit Dependencies
     C:\node\nodetest1>npm install --save monk@7.1.2 mongodb@3.5.4
 Step 5 – Install Dependencies
     C:\node\nodetest1>npm install
-
-
-
+Part 2 – OK, Fine, let's do "Hello, World!"    
+    add to the file \routes\index.js
+    /* GET Hello World page. */
+    router.get('/helloworld', function(req, res) {
+      res.render('helloworld', { title: 'Hello, World!' });
+    });
+    
+    actual page for res.render to … render That's where EJS comes in
+    open index.ejs & save it as helloworld.ejs
+    <p>Hello, World! Welcome to <%= title %></p> //modify the file
+    npm start

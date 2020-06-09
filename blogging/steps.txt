@@ -30,4 +30,6 @@ Step 1 – Install MongoDB
     mkdir -p /data/db
 Step 2 – Run mongo
     mongo
-
+Step 3 – Create a Database
+    use nodetest //Mongo Console
+ 

@@ -1,2 +1,3 @@
 Step 1 – Install Node.js
-
+Step 2 – Install Express Generator
+    C:\node>npm install -g express-generator //-g lives in your master NPM installation directory,

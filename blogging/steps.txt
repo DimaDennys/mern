@@ -1,3 +1,18 @@
 Step 1 – Install Node.js
 Step 2 – Install Express Generator
-    C:\node>npm install -g express-generator //-g lives in your master NPM installation directory,
+    C:\node>npm install -g express-generator //-g lives in your master NPM installation directory
+Step 3 – Create an Express Project
+    C:\node>express --view="ejs" nodetest1
+    change directory:
+     $ cd notetest
+   install dependencies:
+     $ npm install
+   run the app:
+     $ DEBUG=notetest:* npm star
+Step 4 – Edit Dependencies
+    C:\node\nodetest1>npm install --save monk@7.1.2 mongodb@3.5.4
+Step 5 – Install Dependencies
+    C:\node\nodetest1>npm install
+
+
+

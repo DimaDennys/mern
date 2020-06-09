@@ -38,6 +38,14 @@ Step 4 – Add some Data
     newstuff = [{ "username" : "testuser2", "email" : "testuser2@testdomain.com" },
                 { "username" : "testuser3", "email" : "testuser3@testdomain.com" }]
     db.usercollection.insert(newstuff);
-
-
+Step 5 – Hook Mongo up to Node
+    // New Code ,to talk to MongoDB
+    var monk = require('monk');
+    var db = monk('localhost:27017/nodetest1');
+    // Make our db accessible to our router
+    app.use(function(req,res,next){
+      req.db = db;
+      next();
+    });
+    we're adding that Monk to every HTTP request (ie: req) our app makes. 
  

@@ -32,4 +32,12 @@ Step 2 – Run mongo
     mongo
 Step 3 – Create a Database
     use nodetest //Mongo Console
+Step 4 – Add some Data
+    db.usercollection.insert({ "username" : "testuser1", "email" : "testuser1@testdomain.com" })
+    db.usercollection.find().pretty()
+    newstuff = [{ "username" : "testuser2", "email" : "testuser2@testdomain.com" },
+                { "username" : "testuser3", "email" : "testuser3@testdomain.com" }]
+    db.usercollection.insert(newstuff);
+
+
  

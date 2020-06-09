@@ -24,3 +24,6 @@ Part 2 – OK, Fine, let's do "Hello, World!"
     open index.ejs & save it as helloworld.ejs
     <p>Hello, World! Welcome to <%= title %></p> //modify the file
     npm start
+Part 3 – Create our DB and read stuff from it
+Step 1 – Install MongoDB
+    pointing it to http://mongodb.com/

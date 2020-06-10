@@ -80,4 +80,47 @@ Step 6 – Pull your data from Mongo and display it
         </ul>
       </body>
     </html>
- 
+ Part 4 Step 1 – Create your data input
+    file route/index.js
+      /* GET New User page. */
+      router.get('/newuser', function(req, res){
+        res.render('newuser', { title: 'New User'})
+      })
+    Open up /views/index.ejs, save it as newuser.ejs
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Add User</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+      </head>
+      <body>
+        <h1><%= title %></h1>
+        <form id="formAddUser" name="adduser" method="post" action="/adduser">
+          <input id="inputUserName" type="text" placeholder="username" name="username" />
+          <input id="inputUserEmail" type="text" placeholder="email" name="useremail" />
+          <button id="btnSubmit" type="submit">Submit</button>
+        </form>
+      </body>
+    </html>
+Part 4 Step 2 – Create your DB functions
+    add into route/index.js a route for POSTing to /adduser 
+      /* POST to Add User Service */
+      router.post('/adduser', function(req, res){
+        const db = req.db
+        const userName = req.body.username
+        const userEmail = req.body.useremail
+        const collection = db.get('usercollection')
+        
+        collection.insert({
+          "username": userName, "useremail": userEmail},
+          function(err, doc) {
+            if( err ){
+              res.send("There was a problem adding the information to the database.")
+            } else {
+              res.redirect("userlist")
+            }
+        })
+      })
+
+    
+    

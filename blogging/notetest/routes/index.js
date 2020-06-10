@@ -44,4 +44,22 @@ router.get('/helloworld', function(req, res, next) {
     res.render('newuser', { title: 'New User'})
   })
 
+  /* POST to Add User Service */
+  router.post('/adduser', function(req, res){
+    const db = req.db
+    const userName = req.body.username
+    const userEmail = req.body.useremail
+    const collection = db.get('usercollection')
+    
+    collection.insert({
+      "username": userName, "useremail": userEmail},
+      function(err, doc) {
+        if( err ){
+          res.send("There was a problem adding the information to the database.")
+        } else {
+          res.redirect("userlist")
+        }
+    })
+  })
+
 module.exports = router;

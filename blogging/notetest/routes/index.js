@@ -39,4 +39,9 @@ router.get('/helloworld', function(req, res, next) {
     })
   });
 
+  /* GET New User page. */
+  router.get('/newuser', function(req, res){
+    res.render('newuser', { title: 'New User'})
+  })
+
 module.exports = router;

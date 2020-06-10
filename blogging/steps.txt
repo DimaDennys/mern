@@ -121,6 +121,7 @@ Part 4 Step 2 – Create your DB functions
             }
         })
       })
+Part 4 Step 3 – Connect and add data to your DB
+    Add a few users to check the form
 
-    
     

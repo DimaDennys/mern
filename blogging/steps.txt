@@ -47,5 +47,37 @@ Step 5 – Hook Mongo up to Node
       req.db = db;
       next();
     });
-    we're adding that Monk to every HTTP request (ie: req) our app makes. 
+    we're adding that Monk to every HTTP request (ie: req) our app makes.
+Step 6 – Pull your data from Mongo and display it
+    /* GET Userlist page. Add userlist route*/
+    // we passed to our http request, and then using that db connection to fill our docs variable with database documents
+    router.get('/userlist', function(req, res) {
+        var db = req.db;
+        var collection = db.get('usercollection');
+        collection.find({},{},function(e,docs){
+            res.render('userlist', {
+                "userlist" : docs
+            });
+        });
+    }); 
+    //open index.ejs. save it as userlist.ejs
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>User List</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+      </head>
+      <body>
+        <h1>User List</h1>
+        <ul>
+          <%
+            var list = '';
+            for (i = 0; i < userlist.length; i++) {
+              list += '<li><a href="mailto:' + userlist[i].email + '">' + userlist[i].username + '</a></li>';
+            }
+          %>
+          <%- list %>
+        </ul>
+      </body>
+    </html>
  
